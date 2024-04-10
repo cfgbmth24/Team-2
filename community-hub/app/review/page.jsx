@@ -1,7 +1,16 @@
-// import {useState} from "react"
+'use client'
+
+import {useState} from "react"
+import { FaStar } from "react-icons/fa";
+import { FaRegStar } from "react-icons/fa"; 
+
 export default function HomePage() {
 
-    // const [ rating, setRating ] = useState(1)
+
+    const [ rating, setRating ] = useState(0)
+    const [ text, setText ] = useState("")
+    const [ image, setImage ] = useState(null)
+
 
     return (
         <body className="p-6 px-12">
@@ -24,11 +33,43 @@ export default function HomePage() {
         
         <div class="flex justify-left h-100" >
 
-        <span class="text-yellow-500 text-3xl">&#9734;</span>
-        <span class="text-yellow-500 text-3xl">&#9734;</span>
-        <span class="text-yellow-500 text-3xl">&#9734;</span>
-        <span class="text-yellow-500 text-3xl">&#9734;</span>
-        <span class="text-yellow-500 text-3xl">&#9734;</span>
+        <span onClick = {() => setRating(1)} class="text-yellow-500 text-3xl">
+            {
+                rating < 1 ? (
+                    <FaRegStar />
+                ) : (
+                    <FaStar />
+                )
+            }
+        </span>
+        <span onClick = {() => setRating(2)} class="text-yellow-500 text-3xl">         {
+                rating < 2 ? (
+                    <FaRegStar />
+                ) : (
+                    <FaStar />
+                )
+            }</span>
+        <span onClick = {() => setRating(3)} class="text-yellow-500 text-3xl">         {
+                rating < 3 ? (
+                    <FaRegStar />
+                ) : (
+                    <FaStar />
+                )
+            }</span>
+        <span onClick = {() => setRating(4)} class="text-yellow-500 text-3xl">         {
+                rating < 4 ? (
+                    <FaRegStar />
+                ) : (
+                    <FaStar />
+                )
+            }</span>
+        <span onClick = {() => setRating(5)} class="text-yellow-500 text-3xl">         {
+                rating < 5 ? (
+                    <FaRegStar />
+                ) : (
+                    <FaStar />
+                )
+            }</span>
 
         </div>
 
