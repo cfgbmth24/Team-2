@@ -7,14 +7,16 @@ import PocketBase from 'pocketbase';
 
 export default function HomePage() {
     const pb = new PocketBase('http://ec2-54-154-251-251.eu-west-1.compute.amazonaws.com:8090');
+    const user = pb.user
+    const event = "Run Club"
     const [ rating, setRating ] = useState(0)
     const [ text, setText ] = useState("")
     const [ image, setImage ] = useState(null)
 
 
     const data = {
-        "user": "123",
-        "event": "12345",
+        "user": user,
+        "event": event,
         "rating": rating,
         "comment": text,
         };
@@ -47,9 +49,9 @@ export default function HomePage() {
 
         </div>
         
-        <div class="flex justify-left h-100" >
+        <div className="flex justify-left h-100" >
 
-        <span onClick = {() => setRating(1)} class="text-yellow-500 text-3xl">
+        <span onClick = {() => setRating(1)} className="text-yellow-500 text-3xl">
             {
                 rating < 1 ? (
                     <FaRegStar />
@@ -58,28 +60,28 @@ export default function HomePage() {
                 )
             }
         </span>
-        <span onClick = {() => setRating(2)} class="text-yellow-500 text-3xl">         {
+        <span onClick = {() => setRating(2)} className="text-yellow-500 text-3xl">         {
                 rating < 2 ? (
                     <FaRegStar />
                 ) : (
                     <FaStar />
                 )
             }</span>
-        <span onClick = {() => setRating(3)} class="text-yellow-500 text-3xl">         {
+        <span onClick = {() => setRating(3)} className="text-yellow-500 text-3xl">         {
                 rating < 3 ? (
                     <FaRegStar />
                 ) : (
                     <FaStar />
                 )
             }</span>
-        <span onClick = {() => setRating(4)} class="text-yellow-500 text-3xl">         {
+        <span onClick = {() => setRating(4)} className="text-yellow-500 text-3xl">         {
                 rating < 4 ? (
                     <FaRegStar />
                 ) : (
                     <FaStar />
                 )
             }</span>
-        <span onClick = {() => setRating(5)} class="text-yellow-500 text-3xl">         {
+        <span onClick = {() => setRating(5)} className="text-yellow-500 text-3xl">         {
                 rating < 5 ? (
                     <FaRegStar />
                 ) : (
@@ -95,10 +97,10 @@ export default function HomePage() {
         <textarea className="bg-white w-full h-40 p-4 border border-gray-300 rounded-md" textbox="Enter your text here..."></textarea>
 
 
-        <label for="upload" class="cursor-pointer inline-block bg-blue-500 text-black rounded-m-md border border-black px-4 py-2 rounded-md shadow-md">
+        <label form="upload" className="cursor-pointer inline-block bg-blue-500 text-black rounded-m-md border border-black px-4 py-2 rounded-md shadow-md">
         Upload Pictures
         </label>
-        <input id="upload" type="file" class="hidden" />
+        <input id="upload" type="file" className="hidden" />
 
         
         <button onClick = {() => submit()} className="p-3 py-2 px-4 bg-pink text-white font-bold rounded-xl text-center">Submit</button>
