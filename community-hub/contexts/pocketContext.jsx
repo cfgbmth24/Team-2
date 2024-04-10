@@ -13,7 +13,7 @@ import { useInterval } from "usehooks-ts"
 import {jwtDecode} from "jwt-decode"
 import ms from "ms"
 
-const BASE_URL = "http://127.0.0.1:8090"
+const BASE_URL = "http://ec2-54-154-251-251.eu-west-1.compute.amazonaws.com"
 
 const fiveMinutesInMs = ms("5 minutes")
 const twoMinutesInMs = ms("2 minutes")
