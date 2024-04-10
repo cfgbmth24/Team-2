@@ -16,7 +16,7 @@ export default function LeaderBoard() {
                 </div>
               </div>
               <div>
-                <div className="text-lg font-semibold">120 tickets</div>
+                <div className="text-lg font-semibold">9 Tickets</div>
               </div>
             </div>
             {/* Leaderboard Entry 2 */}
@@ -29,7 +29,7 @@ export default function LeaderBoard() {
                 </div>
               </div>
               <div>
-                <div className="text-lg font-semibold">110 tickets</div>
+                <div className="text-lg font-semibold">7 Tickets</div>
               </div>
             </div>
             {/* ... Additional entries ... */}
@@ -39,11 +39,11 @@ export default function LeaderBoard() {
                 <div className="text-xl font-semibold text-gray-700">3</div>
                 <div>
                   <div className="text-lg font-semibold">Emma Johnson</div>
-                  <div className="text-sm text-gray-600">School Teacher</div>
+                  <div className="text-sm text-gray-600">Local School</div>
                 </div>
               </div>
               <div>
-                <div className="text-lg font-semibold">100 tickets</div>
+                <div className="text-lg font-semibold">4 Tickets</div>
               </div>
             </div>
             {/* ... Additional entries ... */}
@@ -57,7 +57,7 @@ export default function LeaderBoard() {
                 </div>
               </div>
               <div>
-                <div className="text-lg font-semibold">90 tickets</div>
+                <div className="text-lg font-semibold">3 Tickets</div>
               </div>
             </div>
             {/* Leaderboard Entry 5 */}
@@ -66,11 +66,11 @@ export default function LeaderBoard() {
                 <div className="text-xl font-semibold text-gray-700">5</div>
                 <div>
                   <div className="text-lg font-semibold">Olivia Taylor</div>
-                  <div className="text-sm text-gray-600">Hilton Hotels</div>
+                  <div className="text-sm text-gray-600">School Teacher</div>
                 </div>
               </div>
               <div>
-                <div className="text-lg font-semibold">80 tickets</div>
+                <div className="text-lg font-semibold">2 Tickets</div>
               </div>
             </div>
           </div>
