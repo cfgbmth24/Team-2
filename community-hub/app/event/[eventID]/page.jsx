@@ -1,6 +1,6 @@
 'use client'
 
-import { MdOutlineAccessTime } from "react-icons/md";
+import { IoMdTime } from "react-icons/io";
 import { CiLocationOn } from "react-icons/ci";
 import { TicketBasket } from "./TicketBasket";
 import { useEffect, useState } from "react";
@@ -26,12 +26,12 @@ export default function EventPage({ params }) {
 
             <div className="flex gap-6">
 
-                <img src={event?.image} className="bg-green-300 h-36 w-72 rounded-xl" />
+                <img src={pb.files.getUrl(event, event.image)} className="bg-green-300 h-36 w-72 rounded-xl object-cover" />
 
                 <div className="flex flex-col gap-2 justify-center">
-                    <h1 className="text-4xl font-semibold">Event Name</h1>
+                    <h1 className="text-4xl font-semibold">{event?.name}</h1>
                     <div className="flex gap-2 items-center">
-                        <MdOutlineAccessTime />
+                        <IoMdTime />
                         <p>{event?.startTime?.toLocaleString()}</p>
                     </div>
                     <div className="flex gap-2 items-center">
@@ -48,7 +48,7 @@ export default function EventPage({ params }) {
 
                     <h2 className="text-2xl font-semibold">Description</h2>
 
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi laudantium quod voluptatibus, molestiae vero odit facilis mollitia! Quae nulla iusto distinctio illum libero dicta eius adipisci! Molestias possimus sit eaque.</p>
+                    <p>{event?.description}</p>
 
                 </div>
 

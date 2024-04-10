@@ -3,12 +3,13 @@
 import { PocketProvider } from "@/contexts/pocketContext";
 import "./globals.css";
 import Link from "next/link"
+import { UserButton } from "./UserButton";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
 		<PocketProvider>
-			<body className="p-4 px-12">
+			<body className="p-4 px-28">
 
 				<nav className="flex justify-between pb-8">
 
@@ -16,7 +17,7 @@ export default function RootLayout({ children }) {
 						<img src="/logo.jpg" className="h-16" />
 					</Link>
 
-					<button className="p-4 bg-pink text-white font-bold rounded-xl">Log in</button>
+					<UserButton />
 
 				</nav>
 
