@@ -11,6 +11,7 @@ export default function HomePage() {
     const [ text, setText ] = useState("")
     const [ image, setImage ] = useState(null)
 
+
     const data = {
         "user": "123",
         "event": "12345",
@@ -18,17 +19,16 @@ export default function HomePage() {
         "comment": text,
         };
 
-    const record = pb.collection('reviews').update('RECORD_ID', data);
-
-
     function submit() {
-        
+        setText(text)
+        const record = pb.collection('reviews').create(data);
     }
 
     
 
 
     return (
+        
         <body className="p-6 px-12">
 
         <div className="px-6 py-10 bg-gray-200 shadow-lg border rounded-lg" style={{ height: '1000px' }}>
@@ -101,7 +101,7 @@ export default function HomePage() {
         <input id="upload" type="file" class="hidden" />
 
         
-        <button onClick = {() => setText(textbox)} className="p-3 py-2 px-4 bg-pink text-white font-bold rounded-xl text-center">Submit</button>
+        <button onClick = {() => submit()} className="p-3 py-2 px-4 bg-pink text-white font-bold rounded-xl text-center">Submit</button>
 
  
 
