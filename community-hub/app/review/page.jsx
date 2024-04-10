@@ -10,16 +10,25 @@ export default function HomePage() {
     const [ rating, setRating ] = useState(0)
     const [ text, setText ] = useState("")
     const [ image, setImage ] = useState(null)
+
+
     const data = {
         "user": "123",
         "event": "12345",
         "rating": rating,
         "comment": text,
         };
- 
+
+    function submit() {
+        setText(text)
+        const record = pb.collection('reviews').create(data);
+    }
+
+    
 
 
     return (
+        
         <body className="p-6 px-12">
 
         <div className="px-6 py-10 bg-gray-200 shadow-lg border rounded-lg" style={{ height: '1000px' }}>
@@ -28,7 +37,7 @@ export default function HomePage() {
 
         <div className="px-6 py-6 bg-white shadow-lg border rounded-lg" style = {{ height: "300px" }}>
             <div className="grid grid-cols-2 gap-4">
-            <img src={"blankimage.jpg"} alt="Description of the image" className="w-64 h-64" />
+            <img src={"blankimage.png"} alt="Description of the image" className="w-100 h-64" />
                 <div className="w-2/3 ml-4">
                     <h2 className="text-lg font-bold mb-1">Name: </h2>
                     <p className="text-lg font-bold mb-1">Date: </p>
@@ -83,7 +92,7 @@ export default function HomePage() {
 
 
         <p className="mb-2">Any comments on the event:</p>
-        <textarea className="bg-white w-full h-40 p-4 border border-gray-300 rounded-md" placeholder="Enter your text here..."></textarea>
+        <textarea className="bg-white w-full h-40 p-4 border border-gray-300 rounded-md" textbox="Enter your text here..."></textarea>
 
 
         <label for="upload" class="cursor-pointer inline-block bg-blue-500 text-black rounded-m-md border border-black px-4 py-2 rounded-md shadow-md">
@@ -92,14 +101,11 @@ export default function HomePage() {
         <input id="upload" type="file" class="hidden" />
 
         
-        <button onClick = {() => setText(placeholder)} className="p-3 py-2 px-4 bg-pink text-white font-bold rounded-xl text-center">Submit</button>
+        <button onClick = {() => submit()} className="p-3 py-2 px-4 bg-pink text-white font-bold rounded-xl text-center">Submit</button>
 
  
 
         </div>
-
-
-
         </body>
     )
 }

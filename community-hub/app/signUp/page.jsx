@@ -1,6 +1,7 @@
 
 'use client'
 import {usePocket} from "@/contexts/pocketContext"
+import { useRouter } from "next/navigation";
 import React, { useRef } from 'react';
 
 
@@ -12,7 +13,9 @@ export default function SignUpPage() {
     const { pb } = usePocket();
 
     const handleSubmit = (event) => {
+        
         event.preventDefault(); 
+
 
   
         const data = {
@@ -27,9 +30,11 @@ export default function SignUpPage() {
         console.log(data);
 
         pb.collection("users").create(data).then((res) => {
-            console.log(res)
+            router.push("/")
         })
     };
+
+    const router = useRouter()
 
     return (
         <section className="bg-white py-8 px-4 flex justify-center items-start min-h-screen">
