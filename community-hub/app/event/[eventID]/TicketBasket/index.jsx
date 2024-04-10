@@ -9,7 +9,7 @@ import { FaPlus } from "react-icons/fa"
 
 export function TicketBasket({ eventID }) {
 
-    const { pb } = usePocket()
+    const { pb, user } = usePocket()
     const [ options, setOptions ] = useState([])
     const [ basket, setBasket ] = useState([])
     const [ counter, setCounter ] = useState(0)
@@ -28,12 +28,36 @@ export function TicketBasket({ eventID }) {
         })
     }, [])
 
-    const addToBasket = (name, price) => {
+    const addToBasket = (id, name, price) => {
         setBasket(basket => {
             return [
                 ...basket,
-                { name, price }
+                { id, name, price }
             ]
+        })
+    }
+
+    const checkout = async () => {
+        const data = {
+            "user": "RELATION_RECORD_ID",
+            "ticketType": "RELATION_RECORD_ID"
+        };
+        
+        basket.forEach((item, i) => {
+            pb.collection('bought_tickets').create({
+                user: user.id,
+                ticketType: item.id
+            })
+            .then(() => {
+                console.log("Created", i)
+                if(i === basket.length - 1) {
+                    // Then all tickets have been created
+                    router.push("/")
+                }
+            })
+            .catch(err => {
+                console.error("Error creating ticket", i, err)
+            })
         })
     }
 
@@ -62,7 +86,7 @@ export function TicketBasket({ eventID }) {
                                     <h4>{opt?.name}</h4>
                                     <b>£{opt?.price?.toFixed(2)}</b>
                                 </div>
-                                <button onClick={() => addToBasket(opt.name, opt.price)}>
+                                <button onClick={() => addToBasket(opt.id, opt.name, opt.price)}>
                                     <FaPlus />
                                 </button>
                             </div>
@@ -110,9 +134,7 @@ export function TicketBasket({ eventID }) {
             <div className="flex justify-end">
                 <button
                     disabled={basket.length === 0}
-                    onClick={() => router.push("/event/" + eventID + "/checkout", {
-                        query: { basket: basket}
-                    })}
+                    onClick={checkout}
                     className="bg-pink disabled:bg-gray-400 p-4 text-white rounded-xl font-semibold"
                     href={"/event/" + eventID + "/checkout"}>
                         Checkout

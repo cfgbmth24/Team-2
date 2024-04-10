@@ -4,7 +4,7 @@ import { IoMdTime } from "react-icons/io";
 import { CiLocationOn } from "react-icons/ci";
 import { TicketBasket } from "./TicketBasket";
 import { useEffect, useState } from "react";
-import { LuSparkles } from "react-icons/lu";
+import { LuQrCode, LuSparkles } from "react-icons/lu";
 import { usePocket } from "@/contexts/pocketContext";
 import Link from "next/link"
 
@@ -48,13 +48,20 @@ export default function EventPage({ params }) {
 
                 {
                     new Date(event?.startTime).getTime() > new Date().getTime() ? (
-                        <Link className="p-4 rounded-xl bg-blue text-white font-semibold text-xl w-full flex flex-col items-center text-center" href={"/review/" + params.eventID}>
-                            <span className="font-thin">This event has already started</span>
-                            <div className="flex items-center gap-2">
-                                <LuSparkles />
-                                <span className="text-xl">Review Event</span>
-                            </div>
-                        </Link>
+                        <div className="w-full flex flex-col gap-6">
+                            <Link className="p-4 text-3xl flex gap-4" href={"/event/" + params.eventID + "/qr"}>
+                                <LuQrCode />
+                                Reveal QR Code
+                            </Link>
+
+                            <Link className="p-4 rounded-xl bg-blue text-white font-semibold text-xl w-full flex flex-col items-center text-center" href={"/review/" + params.eventID}>
+                                <span className="font-thin">This event has already started</span>
+                                <div className="flex items-center gap-2">
+                                    <LuSparkles />
+                                    <span className="text-xl">Review Event</span>
+                                </div>
+                            </Link>
+                        </div>
                     ) : (
                         <div className="flex-1 flex flex-col gap-3">
                             <h2 className="text-2xl font-semibold">Description</h2>    
