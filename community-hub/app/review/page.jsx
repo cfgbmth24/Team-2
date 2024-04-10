@@ -21,7 +21,7 @@ export default function HomePage() {
 
         <div className="px-6 py-6 bg-white shadow-lg border rounded-lg" style = {{ height: "300px" }}>
             <div className="grid grid-cols-2 gap-4">
-            <img src={"logo.jpg"} alt="Description of the image" style={{width: "300px"}} />
+            <img src={"blankimage.jpg"} alt="Description of the image" className="w-64 h-64" />
                 <div className="w-2/3 ml-4">
                     <h2 className="text-lg font-bold mb-1">Name: </h2>
                     <p className="text-lg font-bold mb-1">Date: </p>
@@ -84,7 +84,12 @@ export default function HomePage() {
         </label>
         <input id="upload" type="file" class="hidden" />
 
+        
+        <button className="p-3 py-2 px-4 bg-pink text-white font-bold rounded-xl text-center">Submit</button>
+
         </div>
+
+
 
 
         </body>
