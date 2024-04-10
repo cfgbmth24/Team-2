@@ -38,11 +38,7 @@ export function TicketBasket({ eventID }) {
     }
 
     const checkout = async () => {
-        const data = {
-            "user": "RELATION_RECORD_ID",
-            "ticketType": "RELATION_RECORD_ID"
-        };
-        
+
         basket.forEach((item, i) => {
             pb.collection('bought_tickets').create({
                 user: user.id,
@@ -59,6 +55,9 @@ export function TicketBasket({ eventID }) {
                 console.error("Error creating ticket", i, err)
             })
         })
+
+        router.push("/")
+
     }
 
     const router = useRouter()
