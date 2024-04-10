@@ -1,4 +1,5 @@
 import { PocketProvider } from "@/contexts/pocketContext";
+// import { Link } from 'react-router-dom';
 import "./globals.css";
 
 
@@ -16,9 +17,7 @@ export default function RootLayout({ children }) {
 
 				<img onClick src="/logo.jpg" className="h-16" />
 =======
-					<Link href={"/"}>
-						<img src="/logo.jpg" className="h-16" />
-					</Link>
+					<img src="/logo.jpg" className="h-16" />
 					<button className="p-4 bg-pink text-white font-bold rounded-xl">Log in</button>
 
 				</nav>

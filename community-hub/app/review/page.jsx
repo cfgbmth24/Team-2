@@ -3,13 +3,20 @@
 import {useState} from "react"
 import { FaStar } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa"; 
+import PocketBase from 'pocketbase';
 
 export default function HomePage() {
-
-
+    const pb = new PocketBase('http://ec2-54-154-251-251.eu-west-1.compute.amazonaws.com:8090');
     const [ rating, setRating ] = useState(0)
     const [ text, setText ] = useState("")
     const [ image, setImage ] = useState(null)
+    const data = {
+        "user": "123",
+        "event": "12345",
+        "rating": rating,
+        "comment": text,
+        };
+ 
 
 
     return (
@@ -85,7 +92,9 @@ export default function HomePage() {
         <input id="upload" type="file" class="hidden" />
 
         
-        <button className="p-3 py-2 px-4 bg-pink text-white font-bold rounded-xl text-center">Submit</button>
+        <button onClick = {() => setText(placeholder)} className="p-3 py-2 px-4 bg-pink text-white font-bold rounded-xl text-center">Submit</button>
+
+ 
 
         </div>
 
