@@ -21,7 +21,13 @@ export default function RootLayout({ children }) {
 
 				</nav>
 
-				{children}
+				<main>
+					{children}
+				</main>
+
+				<footer className="border-t-2 border-gray-200 p-6 pt-8 flex justify-center items-center text-center">
+					<p className="text-gray-500">Terms & Conditions</p>
+				</footer>
 			</body>
 		</PocketProvider>
     </html>

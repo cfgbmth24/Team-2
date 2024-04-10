@@ -7,6 +7,8 @@ import { RecentActivity } from "./RecentActivity"
 
 export default function HomePage() {
 
+    const { pb } = usePocket()
+
     const [events, setEvents] = useState([])
     const [ count, setCount ] = useState(0)
 
