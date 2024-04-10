@@ -5,6 +5,21 @@ import { useEffect, useState } from "react"
 
 export default function HomePage() {
 
+    const { pb } = usePocket()
+    const [events, setEvents] = useState([])
+
+    useEffect(() => {
+        pb.collection('events').getFullList({
+            sort: '-startTime',
+        })
+        .then(res => {
+            console.log(res)
+            setEvents(res)
+        })
+    }, [])
+
+    
+
     // Get the users count
     const [ count, setCount ] = useState(0)
     const { pb } = usePocket()
@@ -32,9 +47,18 @@ export default function HomePage() {
                     Revirews
                 </div>
 
-                <div className="p-6 bg-green-300">
-                    Events list
+                <div className="grid grid-cols-3 gap-6">
+                    {
+                        events?.map((event, i) => {
+                            return (
+                                <div key={i} className="p-6 bg-gray-500 shadow-lg rounded-xl gap-6">
+                                    <h1>{event?.name}</h1>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
+
 
             </div>
 
