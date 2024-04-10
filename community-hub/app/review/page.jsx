@@ -2,7 +2,7 @@ export default function HomePage() {
     return (
         <body className="p-6 px-12">
 
-        <div className="px-6 py-10 bg-gray-200 shadow-lg border rounded-lg" style={{ height: '2000px' }}>
+        <div className="px-6 py-10 bg-gray-200 shadow-lg border rounded-lg" style={{ height: '1000px' }}>
 
         <h1 className="text-lg font-bold mb-4 text-center">Review Form</h1>
 
