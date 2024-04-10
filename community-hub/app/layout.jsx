@@ -14,8 +14,11 @@ export default function RootLayout({ children }) {
 
 				<nav className="flex justify-between pb-8">
 
-					<img onClick src="/logo.jpg" className="h-16" />
-
+				<img onClick src="/logo.jpg" className="h-16" />
+=======
+					<Link href={"/"}>
+						<img src="/logo.jpg" className="h-16" />
+					</Link>
 					<button className="p-4 bg-pink text-white font-bold rounded-xl">Log in</button>
 
 				</nav>
